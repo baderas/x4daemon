@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#~ This file is part of x4daemon
+#~ Copyright (C) 2012 Andreas Bader
+
+#~ This program is free software; you can redistribute it and/or
+#~ modify it under the terms of the GNU General Public License
+#~ as published by the Free Software Foundation; either version 2
+#~ of the License, or (at your option) any later version.
+ 
+#~ This program is distributed in the hope that it will be useful,
+#~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+#~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#~ GNU General Public License for more details.
+ 
+#~ You should have received a copy of the GNU General Public License
+#~ along with this program; if not, write to the Free Software
+#~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+RUNNING=$(ps -A | grep " x4daemon$" | wc -l)
+
+case "$1" in
+	start)
+		stat_busy "Starting X4Daemon"
+		/usr/bin/x4daemon -D -w &> /dev/null
+		if [ $? -gt 0 ] || [ $RUNNING -eq 0 ]; then
+			stat_fail
+		else
+			add_daemon x4daemon
+			stat_done
+		fi
+		;;  
+	stop)
+		stat_busy "Stopping X4Daemon"
+		kill $(pidof x4daemon) &>/dev/null
+		if [ $? -gt 0 ] && [ $RUNNING -gt 0 ]; then
+			stat_fail
+		else
+			rm_daemon x4daemon
+			stat_done
+		fi
+		;;
+	restart)
+		$0 stop
+		$0 start
+		;;
+	status)
+		if [ $RUNNING -eq 1 ]; then
+			echo "X4Daemon is running."
+		else
+			echo "X4Daemon is not running."
+		fi
+		;;
+	*)
+		echo "usage: $0 {start|stop|status|restart}"
+	;;
+esac
+exit 0

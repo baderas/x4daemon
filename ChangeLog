@@ -1,0 +1,54 @@
+/*     This file is part of x4daemon
+ *     Copyright (C) 2012 Andreas Bader
+ *     If you find any bugs or if you want to tell me something: development AT geekparadise.de
+ *      
+ *     This program is free software; you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License
+ *     as published by the Free Software Foundation; either version 2
+ *     of the License, or (at your option) any later version.
+ * 
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ * 
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program; if not, write to the Free Software
+ *     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+ 
+2011/12/30 Version 0.1
+- First public release (0.1).
+
+2011/12/31 Version 0.2
+- added daemon mode (-D)
+- added reinitalization when disconnecting device
+- added waiting mode if disconnecting device (-w)
+- added syslog for daemon mode
+- added init script for arch linux
+- added waiting for device at start when using -w 
+
+2012/01/07 Version 0.3
+- added better checks to configure.ac
+- added check for uniput module
+- added auto load function for uinput module
+- fixed some warnings while compiling (for some other distros)
+
+2012/01/10 Version 0.4
+- fixed help buffer error for -h
+- added some more help/readme stuff (mainly XF86Keycodes)
+- fixed pipes for some older shells (&> does not work on some sh)
+- added waiting code after loading uinput module (for some distris like debian)
+
+2012/01/14 Version 0.4.1
+- changed version scheme
+- fixed a bug for siduction, NULL for standard context in libusb_get_device_list does not work there
+
+2012/01/14 Version 0.4.2
+- fixed new version scheme problems...
+
+2012/09/05 Version 0.4.3
+- added systemd unit file
+
+2012/09/05 Version 0.4.4
+- fixed systemd unit file
