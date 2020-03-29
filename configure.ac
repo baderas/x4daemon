@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([X4Daemon], [0.4.4], [development@geekparadise.de], [x4daemon], [http://www.geekparadise.de/x4daemon])
-AM_INIT_AUTOMAKE()
+AC_INIT([X4Daemon], [0.4.5], [development@geekparadise.de], [x4daemon], [https://github.com/baderas/x4daemon])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 AC_CONFIG_SRCDIR([src/x4daemon.c])
 AC_CONFIG_HEADERS([config.h])
 
