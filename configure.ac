@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.69])
 AC_INIT([X4Daemon], [0.4.5], [development@geekparadise.de], [x4daemon], [https://github.com/baderas/x4daemon])
-AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_SRCDIR([src/x4daemon.c])
 AC_CONFIG_HEADERS([config.h])
 
