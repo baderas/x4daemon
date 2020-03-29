@@ -1,5 +1,5 @@
 /*     x4daemon - A daemon that makes it possible to use all special keys on your Sidewinder X4 keyboard.
- *     Copyright (C) 2012 Andreas Bader
+ *     Copyright (C) 2020 Andreas Bader
  *     If you find any bugs or if you want to tell me something: development AT geekparadise.de
  *      
  *     This program is free software; you can redistribute it and/or
@@ -29,8 +29,9 @@
 #include <unistd.h>
 #include <syslog.h>
 #include <config.h>
+#include <sys/stat.h>
 
-#define _version "0.4.4"
+#define _version "0.4.5"
 
 // Keys for {S1,S2,S3,
 //               S4,S5,S6,Bank_Switch
